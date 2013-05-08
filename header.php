@@ -14,9 +14,8 @@
 	<!-- <meta name="viewport" content="width=device-width" /> -->
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 
-	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_url' ); ?>/css/style.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="http://fast.fonts.com/cssapi/ec5383f1-00b1-4fbb-99c1-2c9e5c78b76a.css"/>
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" type="text/css" />
     
     <script type="text/javascript">
 		var themeUrl = '<?php bloginfo( 'template_url' ); ?>';
@@ -38,6 +37,7 @@
 		wp_enqueue_script('actual', get_template_directory_uri().'/js/plugins/jquery.actual.js', array('jquery'), '', true);
 		wp_enqueue_script('imagesloaded', get_template_directory_uri().'/js/plugins/jquery.imagesloaded.js', array('jquery'), '', true);
 		wp_enqueue_script('transit', get_template_directory_uri().'/js/plugins/jquery.transit.js', array('jquery'), '', true);
+		wp_enqueue_script('countdown', get_template_directory_uri().'/js/plugins/jquery.countdown.min.js', array('jquery'), '', true);
 		wp_enqueue_script('main', get_template_directory_uri().'/js/main.js', array('jquery'), '', true);
 	}
 	add_action('wp_enqueue_scripts', 'load_js');
@@ -48,25 +48,51 @@
 <body <?php body_class(); ?>>
 <div id="wrap" class="hfeed site">
 	<?php do_action( 'before' ); ?>
-	<header id="header" class="site-header" role="banner">
+	<header id="header" role="banner">
 		<div class="inner container">
-			<h1 class="logo-container"><a class="logo" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<div class="navigation-container">
-				<button class="mobile-navigation-btn"><div class="line"></div><div class="line"></div><div class="line"></div></button>
-				<?php get_search_form(); ?>
-				<nav role="navigation" class="site-navigation main-navigation">
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'clearfix menu', 'container' => false ) ); ?>
-				</nav><!-- .site-navigation .main-navigation -->
-			</div>
-			<div class="info">
-				<a href="#" class="login-btn">Log In</a>
-				<span class="contact"><span class="grey bold"><?php _e("Get in touch:", 'zookastar'); ?></span>&nbsp;&nbsp;<span class="phone din big white">+44 (0)203 036 0013</span></span>
+			<h1 class="logo-container span three pull-one">
+				<a class="logo" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+			</h1>
+			<div class="span eight push-two info omega break-on-mobile">
+				<div class="social-container clearfix">
+					<!-- AddThis Button BEGIN -->
+					<div class="span five alpha addthis_toolbox addthis_default_style ">
+						<!-- <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+						<a class="addthis_button_tweet"></a>
+						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a> -->
+					</div>
+					<!-- AddThis Button END -->
+					<div class="span five omega social text-right">
+						<p class="no-margin white">
+							<span class=" follow-us uppercase"><?php _e("Follow Us:", 'zookastar'); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="#" target="_blank" class="facebook-btn"><?php _e("on Facebook"); ?></a>&nbsp;&nbsp;
+							<a href="#" target="_blank" class="twitter-btn"><?php _e("@Zookastar"); ?></a>
+						</p>
+					</div>
+				</div>
+				<div class="countdown-container">
+					<h4 class="title uppercase no-margin"><?php _e('The <span class="white">movie-culture festival</span> with a twist', 'zookastar'); ?></h4>
+					<div class="countdown clearfix">
+						<header class="countdown-header span ten">
+							<h2 class="date uppercase no-margin"><?php _e("31 oct - 03 nov 2013", 'zookastar'); ?></h2>
+							<h5 class="location uppercase no-margin"><?php _e("At Battersea Power STation, london", 'zookastar'); ?>
+							<img src="<?php echo get_template_directory_uri(); ?>/images/misc/countdown_tower.png"  class="tower"/>
+						</header>
+						<div id="countdown" class="span three omega">
+
+						</div>
+					</div>
+				</div>
+				<div class="navigation-container">
+					<button class="mobile-navigation-btn"><div class="line"></div><div class="line"></div><div class="line"></div></button>
+					<nav role="navigation" class="site-navigation main-navigation">
+						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'clearfix menu', 'container' => false ) ); ?>
+					</nav><!-- .site-navigation .main-navigation -->
+				</div>
+				
 			</div>
 		</div>
-		<nav role="navigation" class="mobile-navigation site-navigation main-navigation clearfix">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'clearfix menu', 'container' => false ) ); ?>
-		</nav>
-	</header><!-- #masthead .site-header -->
+	</header><!-- #header -->
 
 	<div id="main" class="site-main" role="main">
 		<div id="ajax-page"></div>

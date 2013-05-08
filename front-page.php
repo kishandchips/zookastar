@@ -16,26 +16,26 @@ get_header(); ?>
 <section id="front-page" class="clearfix">
 
 	<?php if ( get_field('slides')) :?>
-	<div id="homepage-scroller" class="scroller" data-scroll-all="true" >
+
+	<?php print_r(get_fields('slides')); ?>
+	<div id="homepage-scroller" class="scroller">
 		<div class="scroller-mask">
-			<div class="scroll-items-container">
-				<?php $i = 0; ?>
-				<?php while (the_flexible_field('slides')) : ?>
-				<?php 
-					if(get_row_layout() == 'slide'):
-					$image_id = get_sub_field('image_id');
-					$image = wp_get_attachment_image_src($image_id, 'slide');    			
-				?>
-				<div class="scroll-item <?php if($i == 0) echo 'current'; ?>" data-id="<?php echo $i;?>" style="background-image: url(<?php echo $image[0];?>)">
-		        	<div class="content description">
-			        	<?php the_sub_field('content'); ?>
-		            </div>
-		            <div class="overlay"></div>
-				</div>
-				<?php $i++; ?>
-				<?php endif; ?>
-				<?php endwhile; ?>
+			<?php $i = 0; ?>
+			<?php while (the_flexible_field('slides')) : ?>
+			<?php 
+				if(get_row_layout() == 'slide'):
+				$image_id = get_sub_field('image_id');
+				$image = wp_get_attachment_image_src($image_id, 'slide');    			
+			?>
+			<div class="scroll-item <?php if($i == 0) echo 'current'; ?>" data-id="<?php echo $i;?>" style="background-image: url(<?php echo $image[0];?>)">
+	        	<div class="content description">
+		        	<?php the_sub_field('content'); ?>
+	            </div>
+	            <div class="overlay"></div>
 			</div>
+			<?php $i++; ?>
+			<?php endif; ?>
+			<?php endwhile; ?>
 		</div>
 		<div class="scroller-navigation">
 			<a class="prev-btn"></a>
