@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages.
+ * The template for displaying the event page.
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -9,11 +9,15 @@
  *
  * @package zookastar
  * @since zookastar 1.0
+ *
+ *
+ * Template Name: Memorabilia
+ *
  */
 
 get_header(); ?>
 
-<div id="page" class="container">
+<div id="template-memorabilia" class="container">
 	<?php while ( have_posts() ) : the_post(); ?>
 	<div id="content" <?php post_class('content-area'); ?>>
 		<?php if(!$post->post_content == ''): ?>
@@ -38,7 +42,7 @@ get_header(); ?>
 						<div class="break-on-mobile span five column-one" style="<?php the_sub_field('css_column_one'); ?>">
 							<?php the_sub_field('content_column_one'); ?>
 						</div>
-						<div class="break-on-mobile span five column-two" style="<?php the_sub_field('css_column_two'); ?>">
+						<div class="break-on-mobile span five column-two omega" style="<?php the_sub_field('css_column_two'); ?>">
 							<?php the_sub_field('content_column_two'); ?>
 						</div>
 					<?php endif; ?>
@@ -59,7 +63,10 @@ get_header(); ?>
 			<?php endwhile; ?>
 		<?php endif; ?>
 	</div>
-	<?php endwhile; // end of the loop. ?>
+	<div id="memorabilia-form" class="content-area">
+		<?php gravity_form(1, false, false); ?>
+	</div>
+	<?php endwhile;?>
 
 </div><!-- #page -->
 <?php get_footer(); ?>

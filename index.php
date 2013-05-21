@@ -15,40 +15,52 @@ global $parent_id;
 $parent_id = 32;
 get_header(); ?>
 
-<div id="index">
-	<?php get_template_part('inc/page-header'); ?>
-	<div class="row">
-		<div class="container">
-			<ul class="categories clearfix">
-				<li <?php if(!is_category()) : ?>class="current-cat"<?php endif;?>><a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"><?php _e("All Articles", 'zookastar'); ?></a></li>
-				<?php wp_list_categories(array('title_li' => '')); ?>
-			</ul>
-			<ul class="posts clearfix">
-				<?php while ( have_posts() ) : the_post(); ?>
-				<li class="post span two-and-half equal-height <?php if(get_the_ID() == get_queried_object_id()) echo 'current';?>">
-					<a href="<?php the_permalink(); ?>" class="post-btn shadow <?php if(!is_single()) echo 'ajax-btn'; ?>" >
-						<div class="featured-image thumbnail">
-							<?php the_post_thumbnail('thumbnail', array('class' => 'scale')); ?>
+<div id="index" class="container">
+	<div class="content-area">
+		<header class="row index-header">
+			<div class="inner clearfix">
+				<h2 class="span title uppercase no-margin blue"><?php _e("News", 'zookastar'); ?></h2>
+			</div>
+		</header>
+		<div id="posts">
+			<?php $i = 0; ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<div class="post row <?php echo 'border-top';  ?>">
+					<div class="inner clearfix">
+						<div class="break-on-mobile span three column-one image">
+							<div class="thumbnail">
+								<a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail('thumbnail', array('class' => 'scale')); ?>
+								</a>
+							</div>
 						</div>
-						<div class="post-meta">
-							<?php $categories = get_the_category(); ?>
-							<?php if(!empty($categories)): ?>
-							<!--p class="categories uppercase red bold">
-								<?php $i = 0;?>
-								<?php foreach($categories as $category) : ?>
-									<?php if($i > 0) echo ' / '; ?><span class="category"><?php echo $category->name; ?></span>
-								<?php $i++; ?>
-								<?php endforeach; ?>
-							</p-->
-							<?php endif; ?>
-							<h5 class="uppercase"><?php the_title(); ?></h5>
+						<div class="break-on-mobile span six column-two content">
+							<header class="post-header">
+								<h3 class="title uppercase no-margin"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
+								<p class="roboto-bold no-margin uppercase"><?php the_date(); ?></p>
+							</header>
+							<div class="excerpt">
+								<?php the_excerpt(); ?>
+							</div>
 						</div>
-					</a>
-				</li>
-				<?php endwhile; // end of the loop. ?>
-				<div class="clearfix"></div>
-			</ul>
+					</div>
+				</div>
+			<?php $i++; ?>
+			<?php endwhile; ?>
+			<?php
+			global $wp_query;
+
+			$big = 999999999; // need an unlikely integer
+
+			echo paginate_links( array(
+				'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+				'format' => '?paged=%#%',
+				'current' => max( 1, get_query_var('paged') ),
+				'total' => $wp_query->max_num_pages
+			) );
+			?>
 		</div>
 	</div>
-</div><!-- #index -->
+</div>
+
 <?php get_footer(); ?>

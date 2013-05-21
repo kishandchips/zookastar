@@ -12,45 +12,36 @@
 	<footer id="footer" class="site-footer" role="contentinfo">
 		<div class="top">
 			<div class="container">
-				<div class="alpha span seven">
+				<div class="alpha span seven break-on-tablet">
 					<div class="newsletter">
 						<?php gravity_form(2); ?>
 					</div>
 					<nav role="navigation" class="site-navigation main-navigation">
-						<h5 class="uppercase light-grey"><?php _e("Quick Links", 'zookastar'); ?></h5>
+						<h6 class="uppercase light-grey"><?php _e("Quick Links", 'zookastar'); ?></h6>
 						<?php wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'clearfix', 'container' => false ) ); ?>
 					</nav>
 				</div>
-				<div class="omega three span">
-					<h5 class="uppercase light-grey"><?php _e("Quick Links", 'zookastar'); ?></h5>
-					<h3 class="uppercase green"><?php _e("tocks available soon", 'zookastar'); ?></h3>
-				</div>
-				<!-- <div class="omega eight span alpha">
-					<nav role="navigation" class="site-navigation main-navigation">
-						<?php wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'clearfix', 'container' => false ) ); ?>
-					</nav>
-					<div class="clearfix">
-						<div class="span four alpha social-links">
-							<p class="uppercase white no-margin">
-								<span class="title"><?php _e("Follow Us", 'zookastar'); ?>&nbsp;&nbsp;&nbsp;</span>
-								<a href="#" class="linkedin-btn"></a>
-								<a href="#" class="twitter-btn"></a>
-								<a href="#" class="youtube-btn"></a>
-								<a href="#" class="facebook-btn"></a>
-							</p>
-						</div>
-						<div class="span six omega alpha newsletter">
-							<?php //gravity_form(1); ?>
-						</div>
+				<div class="omega alpha three span break-on-tablet">
+					<h6 class="uppercase light-grey"><?php _e("Get Tickets", 'zookastar'); ?></h6>
+					<h4 class="uppercase"><a href="<?php echo get_permalink(get_zookastar_option('tickets_page_id')); ?>" class="green"><?php echo get_the_title(get_zookastar_option('tickets_page_id')) ?></a></h4>
+					<!-- AddThis Button BEGIN -->
+					<div class="addthis_toolbox addthis_default_style ">
+						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+						<a class="addthis_button_tweet"></a>
+						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
 					</div>
-				</div> -->
+					<!-- AddThis Button END -->
+				</div>
 			</div>
 		</div>
 
 		 <div class="bottom">
 			<div class="inner container">
-				<div class="span eight alpha">
-					<p clas="no-margin">&copy; <?php bloginfo( 'name' ); ?> <?php echo date('Y'); ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo get_permalink(190); ?>"><?php _e("Terms &amp; Conditions", 'zookastar') ?></a></p>
+				<div class="span six alpha break-on-mobile">
+					<p clas="no-margin">&copy; <?php bloginfo( 'name' ); ?> <?php echo date('Y'); ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo get_permalink(get_zookastar_option('tnc_page_id')); ?>"><?php echo get_the_title(get_zookastar_option('tnc_page_id')) ?></a></p>
+				</div>
+				<div class="span four omega break-on-mobile">
+					<p clas="no-margin small italic"><?php _e("Subject to contracting, licensing and planning permissions", 'zookastar'); ?></p>
 				</div>
 			</div>
 		</div>
@@ -61,15 +52,15 @@
 
 <script type="text/javascript">
 <!--//--><![CDATA[//><!--
-// var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-3620331-1"]);
-// _gaq.push(["_trackPageview"]);
-// (function() {
-// 	var ga = document.createElement("script");
-// 	ga.type = "text/javascript";ga.async = true;
-// 	ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];
-// 	s.parentNode.insertBefore(ga, s);
-// })();
-//--><!]]>
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-3620331-1"]);
+_gaq.push(["_trackPageview"]);
+(function() {
+	var ga = document.createElement("script");
+	ga.type = "text/javascript";ga.async = true;
+	ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(ga, s);
+})();
+--><!]]>
 </script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-518931043bb53fb1"></script>
 

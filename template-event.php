@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages.
+ * The template for displaying the event page.
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -9,11 +9,15 @@
  *
  * @package zookastar
  * @since zookastar 1.0
+ *
+ *
+ * Template Name: The Event
+ *
  */
 
 get_header(); ?>
 
-<div id="page" class="container">
+<div id="template-event" class="container">
 	<?php while ( have_posts() ) : the_post(); ?>
 	<div id="content" <?php post_class('content-area'); ?>>
 		<?php if(!$post->post_content == ''): ?>
@@ -59,7 +63,39 @@ get_header(); ?>
 			<?php endwhile; ?>
 		<?php endif; ?>
 	</div>
-	<?php endwhile; // end of the loop. ?>
+	<?php if ( get_field('zones')) :?>	
+	<div id="zones" class="content-area">
+		<header class="row zones-header">
+			<div class="inner clearfix">
+				<h3 class="span title uppercase no-margin"><?php _e("The Zones", 'zookastar'); ?></h3>
+			</div>
+		</header>
+		<?php $i = 0; ?>
+		<?php while (the_repeater_field('zones')) : ?>
+			<div class="row <?php if($i > 0) echo 'border-top';  ?>">
+				<div class="inner clearfix">
+					<div class="break-on-mobile span three column-one image">
+						<?php 
+							$image_id = get_sub_field('image_id');
+							$image = wp_get_attachment_image_src($image_id, 'thumbnail');   
+						?>
+						<div class="thumbnail">
+							<img src="<?php echo $image[0]; ?>" class="scale" />
+						</div>
+					</div>
+					<div class="break-on-mobile span five column-two">
+						<h4 class="title uppercase no-margin"><?php the_sub_field('title') ?></h4>
+						<div class="content">
+							<?php the_sub_field('content'); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php $i++; ?>
+		<?php endwhile; ?>
+	</div>
+	<?php endif; ?>
+	<?php endwhile;?>
 
 </div><!-- #page -->
 <?php get_footer(); ?>

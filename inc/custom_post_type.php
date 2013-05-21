@@ -76,9 +76,6 @@ class Custom_Post_Type
 
 			// Register the post type
 			register_post_type( $this->post_type_name, $args );
-
-			global $wp_rewrite;
-			$wp_rewrite->flush_rules();
 		}
 		
 		/* Method to attach the taxonomy to the post type */

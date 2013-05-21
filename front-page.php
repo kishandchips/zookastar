@@ -14,49 +14,62 @@
 
 get_header(); ?>
 <section id="front-page" class="clearfix">
-
-	<?php if ( get_field('slides')) :?>
-
-	<?php print_r(get_fields('slides')); ?>
-	<div id="homepage-scroller" class="scroller">
-		<div class="scroller-mask">
-			<?php $i = 0; ?>
-			<?php while (the_flexible_field('slides')) : ?>
-			<?php 
-				if(get_row_layout() == 'slide'):
-				$image_id = get_sub_field('image_id');
-				$image = wp_get_attachment_image_src($image_id, 'slide');    			
-			?>
-			<div class="scroll-item <?php if($i == 0) echo 'current'; ?>" data-id="<?php echo $i;?>" style="background-image: url(<?php echo $image[0];?>)">
-	        	<div class="content description">
-		        	<?php the_sub_field('content'); ?>
-	            </div>
-	            <div class="overlay"></div>
+	<div class="inner container">
+		<?php if ( get_field('slides')) :?>
+		<div id="homepage-scroller" class="scroller shadow" data-auto-scroll="true">
+			<div class="scroller-mask">
+				<?php $i = 0; ?>
+				<?php while (the_repeater_field('slides')) : ?>
+				<?php 
+					$image_id = get_sub_field('image_id');
+					$image = wp_get_attachment_image_src($image_id, 'slide');    			
+				?>
+				<div class="scroll-item <?php if($i == 0) echo 'current'; ?>" data-id="<?php echo $i;?>" style="background-image: url(<?php echo $image[0];?>)"></div>
+				<?php $i++; ?>
+				<?php endwhile; ?>
 			</div>
-			<?php $i++; ?>
+			<div class="scroller-navigation">
+				<a class="prev-btn"></a>
+				<a class="next-btn"></a>
+			</div>
+		</div><!-- #homepage-scroller -->
+		<?php endif; ?>
+
+		<div id="content" >
+
+			<?php if ( get_field('boxes')) :?>
+				<div class="boxes">
+					<?php while (the_repeater_field('boxes')) : ?>
+					<div class="box span third shadow">
+						<?php $url = get_sub_field('url'); ?>
+						<?php if($url): ?>
+						<a href="<?php echo $url; ?>">
+						<?php endif; ?>
+							<?php 
+								$image_id = get_sub_field('image_id');
+								$image = wp_get_attachment_image_src($image_id, 'thumbnail');   
+							?>
+							<?php if(get_sub_field('content')): ?>
+							<div class="content">
+								<div class="inner"><?php the_sub_field('content'); ?></div>
+							</div>
+							<?php endif; ?>
+							<div class="thumbnail">
+								<img src="<?php echo $image[0]; ?>" class="scale" />
+							</div>
+							<div class="box-meta">
+								<h4 class="title no-margin uppercase green"><?php the_sub_field('title'); ?></h4>
+								<p class="no-margin"><?php the_sub_field('sub_title'); ?>
+							</div>
+						<?php if($url): ?>
+						</a>
+						<?php endif; ?>
+					</div>
+					<?php endwhile; ?>
+				</div>
 			<?php endif; ?>
-			<?php endwhile; ?>
-		</div>
-		<div class="scroller-navigation">
-			<a class="prev-btn"></a>
-			<a class="next-btn"></a>
-		</div>
-	</div><!-- #homepage-scroller -->
-	<?php endif; ?>
-
-	<div id="content">
-		<div class="inner container">
-			<div class="column-one equal-height span four omega alpha">
-				<?php dynamic_sidebar( 'homepage_column_one' ); ?>
-			</div>
-			<div class="column-two equal-height span three omega alpha">
-				<?php dynamic_sidebar( 'homepage_column_two' ); ?>
-			</div>
-			<div class="column-three equal-height span three omega alpha">
-				<?php dynamic_sidebar( 'homepage_column_three' ); ?>
-			</div>
-		</div>
-	</div><!-- #content -->
+		</div><!-- #content -->
+	</div>
 </section><!-- #front-page -->
 
 <?php get_footer(); ?>

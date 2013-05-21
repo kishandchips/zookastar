@@ -42,36 +42,17 @@ function theme_options_do_page() {
 
 			<table class="form-table">
 
-				<tr valign="top"><th scope="row"><?php _e( 'Companies Page ID', 'zookastar' ); ?></th>
+				<tr valign="top"><th scope="row"><?php _e( 'Tickets Page ID', 'zookastar' ); ?></th>
 					<td>
-						 <input id="zookastar_theme_options[companies_page_id]" class="regular-text" type="text" name="zookastar_theme_options[companies_page_id]" value="<?php esc_attr_e( $options['companies_page_id'] ); ?>" />
+						 <input id="zookastar_theme_options[tickets_page_id]" class="regular-text" type="text" name="zookastar_theme_options[tickets_page_id]" value="<?php esc_attr_e( $options['tickets_page_id'] ); ?>" />
 					</td>
 				</tr>
-				<tr valign="top"><th scope="row"><?php _e( 'Case Studies Page ID', 'zookastar' ); ?></th>
+				<tr valign="top"><th scope="row"><?php _e( 'Terms &amp; Conditions Page ID', 'zookastar' ); ?></th>
 					<td>
-						 <input id="zookastar_theme_options[case_studies_page_id]" class="regular-text" type="text" name="zookastar_theme_options[case_studies_page_id]" value="<?php esc_attr_e( $options['case_studies_page_id'] ); ?>" />
+						 <input id="zookastar_theme_options[tnc_page_id]" class="regular-text" type="text" name="zookastar_theme_options[tnc_page_id]" value="<?php esc_attr_e( $options['tnc_page_id'] ); ?>" />
 					</td>
 				</tr>
-				<tr valign="top"><th scope="row"><?php _e( 'Clients Page ID', 'zookastar' ); ?></th>
-					<td>
-						 <input id="zookastar_theme_options[clients_page_id]" class="regular-text" type="text" name="zookastar_theme_options[clients_page_id]" value="<?php esc_attr_e( $options['clients_page_id'] ); ?>" />
-					</td>
-				</tr>
-				<tr valign="top"><th scope="row"><?php _e( 'People Page ID', 'zookastar' ); ?></th>
-					<td>
-						 <input id="zookastar_theme_options[people_page_id]" class="regular-text" type="text" name="zookastar_theme_options[people_page_id]" value="<?php esc_attr_e( $options['people_page_id'] ); ?>" />
-					</td>
-				</tr>
-				<tr valign="top"><th scope="row"><?php _e( 'Services Page ID', 'zookastar' ); ?></th>
-					<td>
-						 <input id="zookastar_theme_options[services_page_id]" class="regular-text" type="text" name="zookastar_theme_options[services_page_id]" value="<?php esc_attr_e( $options['services_page_id'] ); ?>" />
-					</td>
-				</tr>
-				<tr valign="top"><th scope="row"><?php _e( 'Industry News Page ID', 'zookastar' ); ?></th>
-					<td>
-						 <input id="zookastar_theme_options[news_page_id]" class="regular-text" type="text" name="zookastar_theme_options[news_page_id]" value="<?php esc_attr_e( $options['news_page_id'] ); ?>" />
-					</td>
-				</tr>
+				
 			</table>
 			<p class="submit">
 				<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'zookastar' ); ?>" />
@@ -85,11 +66,7 @@ function theme_options_do_page() {
  * Sanitize and validate input. Accepts an array, return a sanitized array.
  */
 function theme_options_validate( $input ) {
-	$input['companies_page_id'] = wp_filter_nohtml_kses( $input['companies_page_id'] );
-	$input['case_studies_page_id'] = wp_filter_nohtml_kses( $input['case_studies_page_id'] );
-	$input['clients_page_id'] = wp_filter_nohtml_kses( $input['clients_page_id'] );
-	$input['people_page_id'] = wp_filter_nohtml_kses( $input['people_page_id'] );
-	$input['services_page_id'] = wp_filter_nohtml_kses( $input['services_page_id'] );
-	$input['news_page_id'] = wp_filter_nohtml_kses( $input['news_page_id'] );
+	$input['tickets_page_id'] = wp_filter_nohtml_kses( $input['tickets_page_id'] );
+	$input['tnc_page_id'] = wp_filter_nohtml_kses( $input['tnc_page_id'] );
 	return $input;
 }

@@ -35,7 +35,7 @@ function zookastar_setup() {
 	 * If you're building a theme based on zookastar, use a find and replace
 	 * to change 'zookastar' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'zookastar', get_template_directory() . '/languages' );
+	//load_theme_textdomain( 'zookastar', get_template_directory() . '/languages' );
 
 	/**
 	 * Add default posts and comments RSS feed links to head
@@ -60,7 +60,7 @@ function zookastar_setup() {
 	add_image_size( 'custom_medium', 380, 250, true);
 	add_image_size( 'custom_thumbnail', 210, 9999);
 	add_image_size( 'gallery_thumbnail', 90, 42, true);
-	add_image_size( 'slide', 1200, 500, true);
+	add_image_size( 'slide', 1200, 445, true);
 	
 	add_filter('jpeg_quality', function($arg){return 100;});
 
@@ -125,6 +125,8 @@ function zookastar_setup() {
    	//$shop->add_taxonomy('Shop Category', array('hierarchical' => true), array('plural' => 'Shop Categories'));
 
 	add_editor_style('editor-styles.css');
+
+	add_filter("gform_tabindex", create_function("", "return false;"));
    
 }
 endif; // zookastar_setup
@@ -153,7 +155,7 @@ function zookastar_widgets_init() {
 
 
 }
-add_action( 'widgets_init', 'zookastar_widgets_init' );
+//add_action( 'widgets_init', 'zookastar_widgets_init' );
 
 
 
@@ -341,11 +343,8 @@ function custom_gform_enqueue_scripts($form, $is_ajax=false){
 <script>
     jQuery(function(){
         <?php
-        /* Go through each one of the form fields */
         foreach($form['fields'] as $i=>$field){
-            /* Check if the field has an assigned placeholder */
             if(isset($field['placeholder']) && !empty($field['placeholder'])){
-                /* If a placeholder text exists, inject it as a new property to the field using jQuery */
                 ?>
                 jQuery('#input_<?php echo $form['id']?>_<?php echo $field['id']?>').attr('placeholder','<?php echo $field['placeholder']?>');
                 <?php
@@ -356,3 +355,23 @@ function custom_gform_enqueue_scripts($form, $is_ajax=false){
     </script>
     <?php
 }
+
+add_action('tiny_mce_before_init', 'custom_tinymce_options'); 
+
+if ( ! function_exists( 'custom_tinymce_options' )) { 
+	function custom_tinymce_options($init){ 
+		$init['apply_source_formatting'] = true; 
+		return $init; 
+	} 
+}
+
+
+function add_grav_forms(){
+	$role = get_role('editor');
+	$role->add_cap('gform_full_access');
+}
+add_action('admin_init','add_grav_forms');
+
+
+
+

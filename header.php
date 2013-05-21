@@ -7,15 +7,21 @@
  * @package zookastar
  * @since zookastar 1.0
  */
-?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+?>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<!-- <meta name="viewport" content="width=device-width" /> -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width" />
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
-
+	<link href="<?php echo get_template_directory_uri(); ?>/images/misc/favicon.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_url' ); ?>/css/style.css" />
-    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" type="text/css" />
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:600|Roboto+Condensed:400,700" rel="stylesheet" type="text/css" />
     
     <script type="text/javascript">
 		var themeUrl = '<?php bloginfo( 'template_url' ); ?>';
@@ -57,16 +63,16 @@
 				<div class="social-container clearfix">
 					<!-- AddThis Button BEGIN -->
 					<div class="span five alpha addthis_toolbox addthis_default_style ">
-						<!-- <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 						<a class="addthis_button_tweet"></a>
-						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a> -->
+						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
 					</div>
 					<!-- AddThis Button END -->
 					<div class="span five omega social text-right">
-						<p class="no-margin white">
+						<p class="no-margin white roboto">
 							<span class=" follow-us uppercase"><?php _e("Follow Us:", 'zookastar'); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="#" target="_blank" class="facebook-btn"><?php _e("on Facebook"); ?></a>&nbsp;&nbsp;
-							<a href="#" target="_blank" class="twitter-btn"><?php _e("@Zookastar"); ?></a>
+							<a href="http://www.facebook.com/zookastarfestival" target="_blank" class="facebook-btn"><?php _e("on Facebook"); ?></a>&nbsp;&nbsp;
+							<a href="http://www.twitter.com/zookastar" target="_blank" class="twitter-btn"><?php _e("@Zookastar"); ?></a>
 						</p>
 					</div>
 				</div>
@@ -75,7 +81,7 @@
 					<div class="countdown clearfix">
 						<header class="countdown-header span ten">
 							<h2 class="date uppercase no-margin"><?php _e("31 oct - 03 nov 2013", 'zookastar'); ?></h2>
-							<h5 class="location uppercase no-margin"><?php _e("At Battersea Power STation, london", 'zookastar'); ?>
+							<h5 class="location uppercase no-margin"><?php _e("At Battersea Power STation, london", 'zookastar'); ?></h5>
 							<img src="<?php echo get_template_directory_uri(); ?>/images/misc/countdown_tower.png"  class="tower"/>
 						</header>
 						<div id="countdown" class="span three omega">

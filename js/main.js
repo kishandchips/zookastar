@@ -74,9 +74,20 @@
 
 			$(window).resize(this.resize);
 			this.resize();
+
+			var memorabiliaForm = $('#memorabilia-form');
+			if(memorabiliaForm.length > 0){
+				$('.gf_page_steps .gf_step', memorabiliaForm).each(function(){
+					var step = $(this),
+						pageId = step.attr('id').replace('gf_step_', '');
+
+					$('.gform_body #gform_page_' + pageId, memorabiliaForm).before(step);
+				});
+			}
 		},
 
 		loaded: function(){
+			$('body').addClass('loaded');
 			this.equalHeight();
 		},
 
@@ -211,20 +222,20 @@
 		},
 
 		resize: function(){
-			var scroller = $('.scroller');
-			var windowWidth = $(window).width();
-			if(scroller.length){
+			// var scroller = $('.scroller');
+			// var windowWidth = $(window).width();
+			// if(scroller.length){
 				
-				var scrollerWidth = scroller.width(),
-					scrollItemWidth = Math.round(scrollerWidth - ((scrollerWidth * 0.12) * 2)),
-					marginLeft = Math.round(scrollItemWidth  -  (scrollerWidth * 0.12));
-					scrollItems = $('.scroll-item', scroller);
+			// 	var scrollerWidth = scroller.width(),
+			// 		scrollItemWidth = Math.round(scrollerWidth - ((scrollerWidth * 0.12) * 2)),
+			// 		marginLeft = Math.round(scrollItemWidth  -  (scrollerWidth * 0.12));
+			// 		scrollItems = $('.scroll-item', scroller);
 
-				var	scrollerHeight = scroller.height();
-				$('.scroll-items-container', scroller).css({'margin-left': -marginLeft});
-				scrollItems.width(scrollItemWidth);
-				//scroller.height(setScrollItemsHeight);
-			}
+			// 	var	scrollerHeight = scroller.height();
+			// 	$('.scroll-items-container', scroller).css({'margin-left': -marginLeft});
+			// 	scrollItems.width(scrollItemWidth);
+			// 	//scroller.height(setScrollItemsHeight);
+			// }
 		}
 	}
 

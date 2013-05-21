@@ -10,44 +10,29 @@
  * @package zookastar
  * @since zookastar 1.0
  */
-$ajax = (isset($_GET['ajax']) && $_GET['ajax'] == true) ? true : false;
-$parent_id = 26;
-if(!$ajax) get_header(); ?>
 
-<div id="single">
-	<?php get_template_part('inc/breadcrumbs'); ?>
-	<div class="inner container">
-		<?php while ( have_posts() ) : the_post(); ?>
-			<article id="post-<?php the_ID(); ?>" <?php post_class('span seven alpha'); ?>>
-				<div class="inner">
+get_header(); ?>
+
+
+<div id="single" class="container">
+	<div class="content-area clearfix">
+		<div id="posts" class="span seven">
+			<?php $i = 0; ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<div class="post row <?php echo 'border-top';  ?>">
+					<header class="post-header">
+						<h3 class="title uppercase no-margin"><?php the_title() ?></h3>
+						<p class="roboto-bold no-margin uppercase"><?php the_date(); ?></p>
+						<?php the_post_thumbnail('large', array('class' => 'scale')); ?>
+					</header>
 					<div class="content">
-						<div class="post-meta clearfix">
-							<div class="span five alpha">
-								<?php $categories = get_the_category(); ?>
-								<?php if(!empty($categories)): ?>
-								<p class="categories uppercase">
-									<?php $i = 0;?>
-									<?php foreach($categories as $category) : ?>
-										<?php if($i > 0) echo ' / '; ?><span class="category"><?php echo $category->name; ?></span>
-									<?php $i++; ?>
-									<?php endforeach; ?>
-								</p>
-								<?php endif; ?>
-							</div>
-							<div class="span five omega">
-								<p class="text-right"><?php the_date(); ?></p>
-							</div>
-						</div>
-						<header class="post-header header">
-							<h1 class="title uppercase red"><?php the_title(); ?></h1>
-						</header>
 						<?php the_content(); ?>
 					</div>
 				</div>
-			</article>
-		<?php endwhile; ?>
-		<?php get_sidebar(); ?>
+			<?php $i++; ?>
+			<?php endwhile; ?>
+		</div>
 	</div>
-</div><!-- #single -->
-<?php if(!$ajax) get_template_part('index'); ?>
-<?php if(!$ajax) get_footer(); ?>
+</div>
+<?php get_footer(); ?>
+
