@@ -7,17 +7,11 @@
  * @package zookastar
  * @since zookastar 1.0
  */
-?>
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+?><!DOCTYPE html>
+<html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />	
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link href="<?php echo get_template_directory_uri(); ?>/images/misc/favicon.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_url' ); ?>/css/style.css" />
@@ -71,8 +65,8 @@
 					<div class="span five omega social text-right">
 						<p class="no-margin white roboto">
 							<span class=" follow-us uppercase"><?php _e("Follow Us:", 'zookastar'); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="http://www.facebook.com/zookastarfestival" target="_blank" class="facebook-btn"><?php _e("on Facebook"); ?></a>&nbsp;&nbsp;
-							<a href="http://www.twitter.com/zookastar" target="_blank" class="twitter-btn"><?php _e("@Zookastar"); ?></a>
+							<a href="#" target="_blank" class="facebook-btn"><?php _e("on Facebook"); ?></a>&nbsp;&nbsp;
+							<a href="#" target="_blank" class="twitter-btn"><?php _e("@Zookastar"); ?></a>
 						</p>
 					</div>
 				</div>

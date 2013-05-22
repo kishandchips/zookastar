@@ -39,10 +39,10 @@ get_header(); ?>
 						</div>
 					<?php endif; ?>
 					<?php if($layout == 'two_columns'): ?>
-						<div class="break-on-mobile span five column-one" style="<?php the_sub_field('css_column_one'); ?>">
+						<div class="break-on-mobile span five column-one equal-height" style="<?php the_sub_field('css_column_one'); ?>">
 							<?php the_sub_field('content_column_one'); ?>
 						</div>
-						<div class="break-on-mobile span five column-two" style="<?php the_sub_field('css_column_two'); ?>">
+						<div class="break-on-mobile span five column-two equal-height" style="<?php the_sub_field('css_column_two'); ?>">
 							<?php the_sub_field('content_column_two'); ?>
 						</div>
 					<?php endif; ?>
@@ -65,9 +65,9 @@ get_header(); ?>
 	</div>
 	<?php if ( get_field('zones')) :?>	
 	<div id="zones" class="content-area">
-		<header class="row zones-header">
+		<header class="zones-header">
 			<div class="inner clearfix">
-				<h3 class="span title uppercase no-margin"><?php _e("The Zones", 'zookastar'); ?></h3>
+				<h3 class="span title uppercase no-margin"><?php _e("The Zones!", 'zookastar'); ?></h3>
 			</div>
 		</header>
 		<?php $i = 0; ?>
@@ -77,7 +77,7 @@ get_header(); ?>
 					<div class="break-on-mobile span three column-one image">
 						<?php 
 							$image_id = get_sub_field('image_id');
-							$image = wp_get_attachment_image_src($image_id, 'thumbnail');   
+							$image = wp_get_attachment_image_src($image_id, 'custom_thumbnail_square');   
 						?>
 						<div class="thumbnail">
 							<img src="<?php echo $image[0]; ?>" class="scale" />

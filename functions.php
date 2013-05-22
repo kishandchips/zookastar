@@ -60,7 +60,7 @@ function zookastar_setup() {
 	add_image_size( 'custom_medium', 380, 250, true);
 	add_image_size( 'custom_thumbnail', 210, 9999);
 	add_image_size( 'gallery_thumbnail', 90, 42, true);
-	add_image_size( 'slide', 1200, 445, true);
+	add_image_size( 'custom_thumbnail_square', 185, 185, true);
 	
 	add_filter('jpeg_quality', function($arg){return 100;});
 
