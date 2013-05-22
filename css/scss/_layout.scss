@@ -128,9 +128,11 @@ body {
 			margin-left: -10%;
 			position: absolute;
 			background-color: #6fd4fc;
-			@include filter-gradient(#6fd4fc, #00a3e0, horizontal);
 			@include background-image(radial-gradient(center, ellipse contain,  #6fd4fc 2%,#00a3e0 100%));
 			@include device-width(5){
+				display: none;
+			}
+			.lt-ie10 & {
 				display: none;
 			}
 		}
@@ -249,7 +251,8 @@ body {
 			 		float: none;
 			 	}
 
-			 	&#menu-item-120 {			 		
+			 	&#menu-item-120,
+			 	&#menu-item-151 {			 		
 				 	@include device-width(9){
 				 			display: none;
 				 	}
@@ -309,7 +312,11 @@ body {
 			 			color: #c2ed00;
 			 		}
 
-			 		> a:hover,
+			 		> a:hover {
+			 			background: #FFF;
+			 			color: #000;
+			 		}
+
 			 		&.current-menu-item > a,
 				 	&.current-category-ancestor > a,
 				 	&.current-page-ancestor > a,
@@ -317,9 +324,9 @@ body {
 				 	&.current-menu-parent > a,
 				 	&.current-post-parent > a,
 				 	&.current > a {
-			 			background: #FFF;
-			 			color: #000;
-			 		}
+				 		background: none;
+				 		color: #c2ed00;
+				 	}
 			 	}
 			 	&.right {
 			 		float: right;
@@ -408,6 +415,8 @@ body {
 				}
 
 				.date {
+					position: relative;
+					z-index: 100;
 					@include device-width(8){
 						@include font-size(30);
 					}
@@ -417,6 +426,9 @@ body {
 					}
 				}
 				.location {
+					position: relative;
+					z-index: 200;
+
 					@include device-width(8){
 						@include font-size(20);
 					}
@@ -473,6 +485,7 @@ body {
 							@include font-size(30);
 							@include roboto-bold;
 							display: inline-block;
+							@include filter-gradient(#FFF, #F0F0F0);
 							@include background(linear-gradient(top, #FFF, #F0F0F0));
 							@include border-radius(5px);
 							@include box-shadow(1px 1px 1px 1px rgba(#000, 0.6));
@@ -506,7 +519,6 @@ body {
 	padding: 430px 0 0 0;
 	color: #FFF;
 
-
 	> .top {
 		background: #1e0a05;
 		border-top: 6px solid #0366c2;
@@ -515,6 +527,12 @@ body {
 
 	> .bottom {
 		background: #000;
+	}
+
+	a {
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 	
 	.main-navigation {
@@ -718,6 +736,10 @@ body {
 			height: 393px;
 		}
 
+		@include device-width(13){
+			height: 360px;
+		}
+
 		@include device-width(12){
 			height: 338px;
 		}
@@ -736,6 +758,18 @@ body {
 		
 		@include device-width(6){
 			height: 172px;
+		}
+
+		@include device-width(5){
+			height: 155px;
+		}
+
+		@include device-width(4){
+			height: 133px;
+		}
+
+		@include device-width(3){
+			height: 100px;
 		}
 
 		// @include device-width(7){
@@ -809,7 +843,7 @@ body {
 					padding: 0.5em 5em 0.5em 0.5em;
 					background: #000; 
 					height: 4.6em;
-					overflow: hidden; 
+					overflow: hidden;
 
 					@include device-width(9){
 						padding-right: 0.5em;
@@ -822,6 +856,8 @@ body {
 					left: 0;
 					z-index: 500;
 					width: 100%;
+					padding: 0 10px;
+					@include box-sizing(border-box);
 					
 					> .inner {
 						padding: 4em;
