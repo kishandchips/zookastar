@@ -68,6 +68,12 @@ body {
 	background: #00a3e0;
 	color: #000;
 	@include box-shadow(0px 2px 2px 0px rgba(#000, 0.6));
+
+	@include device-width(5){
+		padding-bottom: 1em;
+	}	
+
+
 	a {
 		color: #FFF;
 
@@ -122,11 +128,9 @@ body {
 			margin-left: -10%;
 			position: absolute;
 			background-color: #6fd4fc;
+			@include filter-gradient(#6fd4fc, #00a3e0, horizontal);
 			@include background-image(radial-gradient(center, ellipse contain,  #6fd4fc 2%,#00a3e0 100%));
 			@include device-width(5){
-				display: none;
-			}
-			.lt-ie10 & {
 				display: none;
 			}
 		}
@@ -245,8 +249,7 @@ body {
 			 		float: none;
 			 	}
 
-			 	&#menu-item-120,
-			 	&#menu-item-151 {			 		
+			 	&#menu-item-120 {			 		
 				 	@include device-width(9){
 				 			display: none;
 				 	}
@@ -306,11 +309,7 @@ body {
 			 			color: #c2ed00;
 			 		}
 
-			 		> a:hover {
-			 			background: #FFF;
-			 			color: #000;
-			 		}
-
+			 		> a:hover,
 			 		&.current-menu-item > a,
 				 	&.current-category-ancestor > a,
 				 	&.current-page-ancestor > a,
@@ -318,9 +317,9 @@ body {
 				 	&.current-menu-parent > a,
 				 	&.current-post-parent > a,
 				 	&.current > a {
-				 		background: none;
-				 		color: #c2ed00;
-				 	}
+			 			background: #FFF;
+			 			color: #000;
+			 		}
 			 	}
 			 	&.right {
 			 		float: right;
@@ -409,8 +408,6 @@ body {
 				}
 
 				.date {
-					position: relative;
-					z-index: 100;
 					@include device-width(8){
 						@include font-size(30);
 					}
@@ -420,9 +417,6 @@ body {
 					}
 				}
 				.location {
-					position: relative;
-					z-index: 200;
-
 					@include device-width(8){
 						@include font-size(20);
 					}
@@ -479,7 +473,6 @@ body {
 							@include font-size(30);
 							@include roboto-bold;
 							display: inline-block;
-							@include filter-gradient(#FFF, #F0F0F0);
 							@include background(linear-gradient(top, #FFF, #F0F0F0));
 							@include border-radius(5px);
 							@include box-shadow(1px 1px 1px 1px rgba(#000, 0.6));
@@ -513,6 +506,7 @@ body {
 	padding: 430px 0 0 0;
 	color: #FFF;
 
+
 	> .top {
 		background: #1e0a05;
 		border-top: 6px solid #0366c2;
@@ -521,12 +515,6 @@ body {
 
 	> .bottom {
 		background: #000;
-	}
-
-	a {
-		&:hover {
-			text-decoration: underline;
-		}
 	}
 	
 	.main-navigation {
@@ -730,10 +718,6 @@ body {
 			height: 393px;
 		}
 
-		@include device-width(13){
-			height: 360px;
-		}
-
 		@include device-width(12){
 			height: 338px;
 		}
@@ -752,18 +736,6 @@ body {
 		
 		@include device-width(6){
 			height: 172px;
-		}
-
-		@include device-width(5){
-			height: 155px;
-		}
-
-		@include device-width(4){
-			height: 133px;
-		}
-
-		@include device-width(3){
-			height: 100px;
 		}
 
 		// @include device-width(7){
@@ -811,7 +783,7 @@ body {
 			.box {
 				margin: 0 0 3em 0;
 				position: relative;
-				@include device-width(7){
+				@include device-width(8){
 					width: 50%;
 				}
 
@@ -834,10 +806,10 @@ body {
 					border-bottom: 4px solid #00a3e0;
 					@include transition(all 0.3s ease);
 					color: #FFF;
-					padding: 1em 1em 1.5em 1em;
+					padding: 0.5em 5em 0.5em 0.5em;
 					background: #000; 
 					height: 4.6em;
-					overflow: hidden;
+					overflow: hidden; 
 
 					@include device-width(9){
 						padding-right: 0.5em;
@@ -850,50 +822,54 @@ body {
 					left: 0;
 					z-index: 500;
 					width: 100%;
-					padding: 0 10px;
-					@include box-sizing(border-box);
 					
 					> .inner {
-						padding: 3em;
-
-						@include device-width(10){
-							padding: 2em;
-						}
-
-						@include device-width(9){
-							padding: 1em;
-						}
-						@include device-width(9){
-							padding: 1em;
-						}
+						padding: 4em;
 					}
 
 					.social-links {
 						list-style: none;
 						padding-left: 0;
-						margin: 0;
-						
+						margin: 0;					
+						@include device-width(12) {
+							margin-top: -10%;
+						}
+
+						@include device-width(9) {
+							margin-top: -15%;
+						}						
+ 
+						@include device-width(8) {
+							margin-top: 0;
+						}						
+
 						li {
-							@include border-radius(4px);
-							border: 1px solid #666;
+							@include border-radius(2px);
 							background: #f1f1f1;
 							padding: 1em;
 							margin-bottom: 1em;
 
-
-							@include device-width(5){
-								padding: 0.5em;
-							}
-
-
 							a {
-								@include device-width(5){
-									line-height: 1.3;
-									padding-left: 34px;
+								overflow: hidden;
+							}
+						}
+
+						@include device-width(6){
+							display: table;
+							margin: 0 auto;	
+
+							li {
+							    float: left;
+							    margin-right: 6px;
+							    padding: 1px;
+							    width: 28px;
+								
+								a {
+									display: block;
 								}
 							}
-
 						}
+
 					}
 				}
 			}
@@ -995,12 +971,103 @@ body {
 }
 
 #template-event {
+
+	#content {
+
+		&.content-area {
+			margin-bottom: 1.5em;
+		}			
+		
+		position: relative;
+		border-top: 0;
+		background-color: #249fd2;
+		background-image: url("../images/backgrounds/event-content.jpg");
+		background-position: bottom right;
+		background-repeat: no-repeat;
+		color: #fff;
+
+		@include device-width(8){
+			background-image: none;
+		}		
+	}
+
 	#zones {
+
+		&.content-area {
+			border-top: 3px solid #381a27;
+			padding: 0;
+		}
+
+		.row {
+			margin: 0 3em;
+			padding: 2.5em 0;
+
+			.image {
+				@include device-width(5){
+					width: 100% !important;
+
+					.thumbnail {
+						width: 45%;
+						margin: 2em auto 4em;
+					}
+				}				
+			}
+		}	
+
 		.zones-header {
 			padding-bottom: 0;
+			background-color: #cedc00;
+			background-image: url("../images/backgrounds/event-zones-header.jpg");
+			background-position: bottom right;
+			background-repeat: no-repeat;
+			position: relative;	
+
+			.title {
+				line-height: 95px;
+				padding-left: 80px;
+				background: url("../images/misc/event-zones.png") 25px center no-repeat;
+			}
+		}
+
+		.thumbnail {
+			@include border-radius(20px);
+			border: 1em solid #0092c9;
+			@include rotate(-15deg);
+			width: 60%;
+			margin: 2em;
+			overflow: hidden;
+		}
+
+		.title {
+			color: #0092c9;
+		}
+	}
+
+	#content, .zones-header {
+
+		&:before, &:after {
+		    background: url("../images/backgrounds/white_stripes.png") repeat-y scroll 0 0 / contain transparent;
+		    content: "";
+		    display: block;
+		    height: 100%;
+		    left: 0;
+		    position: absolute;
+		    top: 0;
+		    width: 14px;
+		    z-index: 2000;
+
+			@include device-width(5){
+				background: none;
+			}		    
+		}		
+
+		&:after {
+		    left: auto;
+		    right: 0;
 		}
 	}
 }
+
 #template-memorabilia {
 
 	#memorabilia-form {
