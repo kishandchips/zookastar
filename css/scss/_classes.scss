@@ -690,18 +690,24 @@ blockquote {
 .shadow {
 	position: relative;
 	z-index: 100;
+
 	&:before {
 		content: '';
 		z-index: 0;
 		display: none;
 		.loaded & {
 			display: block;
+		
+			@include device-width(5){
+				display: none;
+			}
 		}
 		position: absolute;
 		width: 70%;
 		height: 50%;
 		bottom: 0;
 		left: 15%;
+		z-index: 0;
 		@include box-shadow(0px 0px 30px 5px #000);
 		@include transform(
 			perspective(290) rotateX(40deg)
@@ -710,7 +716,7 @@ blockquote {
 
 	> * {
 		position: relative;
-		z-index: 200;
+		z-index: 300;
 	}
 }
 
