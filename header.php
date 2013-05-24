@@ -65,8 +65,8 @@
 					<div class="span five omega social text-right">
 						<p class="no-margin white roboto">
 							<span class=" follow-us uppercase"><?php _e("Follow Us:", 'zookastar'); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="#" target="_blank" class="facebook-btn"><?php _e("on Facebook"); ?></a>&nbsp;&nbsp;
-							<a href="#" target="_blank" class="twitter-btn"><?php _e("@Zookastar"); ?></a>
+							<a href="https://www.facebook.com/ZookastarFestival" target="_blank" class="facebook-btn"><?php _e("on Facebook"); ?></a>&nbsp;&nbsp;
+							<a href="http://www.twitter.com/zookastar" target="_blank" class="twitter-btn"><?php _e("@Zookastar"); ?></a>
 						</p>
 					</div>
 				</div>
