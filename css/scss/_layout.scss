@@ -827,6 +827,7 @@ body {
 
 				> a {
 					display: block;
+					position: relative;
 					cursor: pointer;
 					
 					&:hover {
@@ -840,9 +841,10 @@ body {
 					border-bottom: 4px solid #00a3e0;
 					@include transition(all 0.3s ease);
 					color: #FFF;
-					padding: 0.5em 5em 0.5em 0.5em;
+					padding: 0.8em;
 					background: #000; 
 					height: 4.6em;
+					position: relative;
 					overflow: hidden;
 
 					@include device-width(9){
@@ -850,17 +852,21 @@ body {
 					}
 				}
 
+				.thumbnail {
+					position: relative;
+				}
+
 				.content {
 					position: absolute;
 					top: 0;
 					left: 0;
-					z-index: 500;
+					z-index: 600;
 					width: 100%;
 					padding: 0 10px;
 					@include box-sizing(border-box);
 					
 					> .inner {
-						padding: 4em;
+						padding: 4em 2em 0 2em;
 					}
 
 					.social-links {
