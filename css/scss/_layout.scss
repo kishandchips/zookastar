@@ -253,7 +253,7 @@ body {
 
 			 	&#menu-item-120,
 			 	&#menu-item-151 {			 		
-				 	@include device-width(9){
+				 	@include device-width(11){
 				 			display: none;
 				 	}
 
@@ -277,10 +277,16 @@ body {
 			 		@include roboto-bold;
 				 	position: relative;
 
-				 	@include device-width(8){
+				 	@include device-width(8) {
 				 		padding: 12px 14px;
 				 		font-size: 13px;
 				 	}
+
+				 	@include device-width(7) {
+				 		padding: 12px 8px;
+				 		font-size: 13px;
+				 	}
+
 
 				 	@include device-width(6){
 				 		padding: 10px;
@@ -1012,7 +1018,7 @@ body {
 	}
 }
 
-#template-event {
+#template-event, #template-competition {
 
 	#content {
 
@@ -1106,6 +1112,34 @@ body {
 		&:after {
 		    left: auto;
 		    right: 0;
+		}
+	}
+}
+
+#template-competition {
+	#content {
+		background-image: url("../images/backgrounds/competition-content.jpg");
+		border-top: 3px solid #cedc00;
+
+		@include device-width(8){
+			background-image: none;
+		}	
+
+		.span {
+			@include device-width(8) {
+				width: 95% !important;
+			}			
+
+		}		
+
+		hr {
+			background: #FFF;
+			width: 75%;
+			margin: 0;
+
+			@include device-width(5) {
+				width: 100%;
+			}
 		}
 	}
 }

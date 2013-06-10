@@ -1393,9 +1393,8 @@ a.thumbnail {
 .download-btn {
 	display: inline-block;
 	background: #FFF url(../images/buttons/download.png) no-repeat 10px center;
-	background: rgba(#FFF, 0.5) url(../images/buttons/download.png) no-repeat 10px center;
-	border: 1px solid #BBB;
-	@include border-radius(2px);
+	border: 1px solid #9b9b9b;
+	@include border-radius(5px);
 	padding: 0.8em 1.5em 1.4em 50px;
 	line-height: 1.3;
 	@include font-size(14);
