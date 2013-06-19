@@ -139,6 +139,7 @@ body {
 
 		@include device-width(5){
 			height: 70px;
+			z-index: 400;
 		}
 	}
 
@@ -1059,7 +1060,7 @@ body {
 		.zones-header {
 			padding-bottom: 0;
 			background-color: #cedc00;
-			background-image: url("../images/backgrounds/event-zones-header.jpg");
+			background-image: url('../images/backgrounds/event-zones-header.jpg');
 			background-position: bottom right;
 			background-repeat: no-repeat;
 			position: relative;	
@@ -1067,16 +1068,15 @@ body {
 			.title {
 				line-height: 95px;
 				padding-left: 80px;
-				background: url("../images/misc/event-zones.png") 25px center no-repeat;
+				background: url('../images/misc/event-zones.png') 25px center no-repeat;
 			}
 		}
 
 		.thumbnail {
 			@include border-radius(20px);
 			border: 1em solid #0092c9;
-			@include rotate(-15deg);
 			width: 60%;
-			margin: 2em;
+			margin: 0 2em;
 			overflow: hidden;
 		}
 
@@ -1088,8 +1088,8 @@ body {
 	#content, .zones-header {
 
 		&:before, &:after {
-		    background: url("../images/backgrounds/white_stripes.png") repeat-y scroll 0 0 / contain transparent;
-		    content: "";
+		    background: url('../images/backgrounds/white_stripes.png') repeat-y scroll 0 0 / contain transparent;
+		    content: '';
 		    display: block;
 		    height: 100%;
 		    left: 0;
