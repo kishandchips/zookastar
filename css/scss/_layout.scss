@@ -184,7 +184,7 @@ body {
 		&:hover {
 			background: #b1e200;
 		}
-		@include device-width(5){
+		@include device-width(6){
 			display: block;
 		}
 
@@ -235,7 +235,7 @@ body {
  		border-left: 1px solid #4dbfe9;
 
 
- 		@include device-width(5){
+ 		@include device-width(6){
  			display: none;
  			border-right: none;
  		}
@@ -254,11 +254,11 @@ body {
 
 			 	&#menu-item-120,
 			 	&#menu-item-151 {			 		
-				 	@include device-width(9){
+				 	@include device-width(11) {
 				 			display: none;
 				 	}
 
-				 	@include device-width(5){
+				 	@include device-width(6) {
 				 			display: block;
 				 	}
 				}
@@ -272,18 +272,23 @@ body {
 			 	> a {
 			 		border-right: 1px solid #4dbfe9;
 			 		display: inline-block;
-					padding: 14px 20px;
+					padding: 14px 18px;
 					text-transform: uppercase;
 			 		@include font-size(16);
 			 		@include roboto-bold;
 				 	position: relative;
 
-				 	@include device-width(8){
-				 		padding: 12px 14px;
+				 	@include device-width(9) {
+				 		padding: 12px 16px;
+				 	}				 	
+
+				 	@include device-width(8) {
+				 		padding: 12px 8px;
 				 		font-size: 13px;
 				 	}
 
-				 	@include device-width(6){
+
+				 	@include device-width(7){
 				 		padding: 10px;
 				 		@include font-size(14);
 				 	}
@@ -1013,7 +1018,7 @@ body {
 	}
 }
 
-#template-event {
+#template-event, #template-competition {
 
 	#content {
 
@@ -1106,6 +1111,34 @@ body {
 		&:after {
 		    left: auto;
 		    right: 0;
+		}
+	}
+}
+
+#template-competition {
+	#content {
+		background-image: url("../images/backgrounds/competition-content.jpg");
+		border-top: 3px solid #cedc00;
+
+		@include device-width(8){
+			background-image: none;
+		}	
+
+		.span {
+			@include device-width(8) {
+				width: 95% !important;
+			}			
+
+		}		
+
+		hr {
+			background: #FFF;
+			width: 75%;
+			margin: 0;
+
+			@include device-width(5) {
+				width: 100%;
+			}
 		}
 	}
 }
