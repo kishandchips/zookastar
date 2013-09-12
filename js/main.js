@@ -67,10 +67,12 @@
 
 			var launchDate = new Date(2013, 10, 31); 
 			
-			$('#countdown').countdown({until: launchDate, 
-				labels: ['Years', 'Months', 'Weeks', 'Days', 'Hrs', 'Mins', 'Secs'],
-				labels1: ['Year', 'Month', 'Week', 'Day', 'Hr', 'Min', 'Sec']
-			});
+			if($.fn.countdown){
+				$('#countdown').countdown({until: launchDate, 
+					labels: ['Years', 'Months', 'Weeks', 'Days', 'Hrs', 'Mins', 'Secs'],
+					labels1: ['Year', 'Month', 'Week', 'Day', 'Hr', 'Min', 'Sec']
+				});
+			}
 
 			$(window).resize(this.resize);
 			this.resize();

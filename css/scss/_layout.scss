@@ -410,7 +410,7 @@ body {
 				.tower {
 					position: absolute;
 					bottom: 0;
-					right: 280px;
+					right: 0;
 					z-index: 0;
 					@include device-width(13){
 						right: 220px;

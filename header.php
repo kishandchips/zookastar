@@ -37,7 +37,7 @@
 		wp_enqueue_script('actual', get_template_directory_uri().'/js/plugins/jquery.actual.js', array('jquery'), '', true);
 		wp_enqueue_script('imagesloaded', get_template_directory_uri().'/js/plugins/jquery.imagesloaded.js', array('jquery'), '', true);
 		wp_enqueue_script('transit', get_template_directory_uri().'/js/plugins/jquery.transit.js', array('jquery'), '', true);
-		wp_enqueue_script('countdown', get_template_directory_uri().'/js/plugins/jquery.countdown.min.js', array('jquery'), '', true);
+		//wp_enqueue_script('countdown', get_template_directory_uri().'/js/plugins/jquery.countdown.min.js', array('jquery'), '', true);
 		wp_enqueue_script('main', get_template_directory_uri().'/js/main.js', array('jquery'), '', true);
 	}
 	add_action('wp_enqueue_scripts', 'load_js');
@@ -74,13 +74,13 @@
 					<h4 class="title uppercase no-margin"><?php _e('The <span class="white">movie-culture festival</span> with a twist', 'zookastar'); ?></h4>
 					<div class="countdown clearfix">
 						<header class="countdown-header span ten">
-							<h2 class="date uppercase no-margin"><?php _e("31 oct - 03 nov 2013", 'zookastar'); ?></h2>
-							<h5 class="location uppercase no-margin"><?php _e("At Battersea Power STation, london", 'zookastar'); ?></h5>
+							<h2 class="date uppercase no-margin"><?php _e("Zookastar moved to 2014", 'zookastar'); ?></h2>
+							<h5 class="location uppercase no-margin"><?php _e("First festival’s date pushed forward to Easter 2014", 'zookastar'); ?></h5>
 							<img src="<?php echo get_template_directory_uri(); ?>/images/misc/countdown_tower.png"  class="tower"/>
 						</header>
-						<div id="countdown" class="span three omega">
+						<!-- <div id="countdown" class="span three omega">
 
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="navigation-container">
