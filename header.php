@@ -74,7 +74,7 @@
 					<h4 class="title uppercase no-margin"><?php _e('The <span class="white">movie-culture festival</span> with a twist', 'zookastar'); ?></h4>
 					<div class="countdown clearfix">
 						<header class="countdown-header span ten">
-							<h2 class="date uppercase no-margin"><?php _e("Zookastar moved to 2014", 'zookastar'); ?></h2>
+							<h2 class="date uppercase no-margin"><a href="<?php echo get_permalink(get_zookastar_option('date_moved_page_id')); ?>"><?php _e("Zookastar moved to 2014", 'zookastar'); ?></a></h2>
 							<h5 class="location uppercase no-margin"><?php _e("First festival’s date pushed forward to Easter 2014", 'zookastar'); ?></h5>
 							<img src="<?php echo get_template_directory_uri(); ?>/images/misc/countdown_tower.png"  class="tower"/>
 						</header>

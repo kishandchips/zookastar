@@ -52,6 +52,11 @@ function theme_options_do_page() {
 						 <input id="zookastar_theme_options[tnc_page_id]" class="regular-text" type="text" name="zookastar_theme_options[tnc_page_id]" value="<?php esc_attr_e( $options['tnc_page_id'] ); ?>" />
 					</td>
 				</tr>
+				<tr valign="top"><th scope="row"><?php _e( 'Date moved Page ID', 'zookastar' ); ?></th>
+					<td>
+						 <input id="zookastar_theme_options[date_moved_page_id]" class="regular-text" type="text" name="zookastar_theme_options[date_moved_page_id]" value="<?php esc_attr_e( $options['date_moved_page_id'] ); ?>" />
+					</td>
+				</tr>
 				
 			</table>
 			<p class="submit">
@@ -68,5 +73,6 @@ function theme_options_do_page() {
 function theme_options_validate( $input ) {
 	$input['tickets_page_id'] = wp_filter_nohtml_kses( $input['tickets_page_id'] );
 	$input['tnc_page_id'] = wp_filter_nohtml_kses( $input['tnc_page_id'] );
+	$input['date_moved_page_id'] = wp_filter_nohtml_kses( $input['date_moved_page_id'] );
 	return $input;
 }
